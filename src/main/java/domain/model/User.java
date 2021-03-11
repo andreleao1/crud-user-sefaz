@@ -3,13 +3,18 @@ package domain.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "user")
@@ -23,15 +28,17 @@ public class User implements Serializable {
 	private Long id;
 
 	@Column(nullable = false)
-	private String nome;
+	private String name;
 
 	@Column(nullable = false)
 	private String email;
 
 	@Column(nullable = false)
-	private String senha;
+	private String password;
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id", nullable = false)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private Set<Phone> phones;
 
 	public User() {
@@ -46,12 +53,12 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
@@ -62,12 +69,12 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public String getSenha() {
-		return senha;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Set<Phone> getPhones() {
@@ -76,5 +83,11 @@ public class User implements Serializable {
 
 	public void setPhones(Set<Phone> phones) {
 		this.phones = phones;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", phones="
+				+ phones + "]";
 	}
 }

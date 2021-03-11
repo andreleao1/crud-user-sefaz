@@ -2,7 +2,6 @@ package domain.model;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,8 +9,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,10 +31,6 @@ public class Phone implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "type_phone", nullable = false)
 	private TypePhone typePhone;
-
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
 
 	public Phone() {
 
@@ -75,11 +68,8 @@ public class Phone implements Serializable {
 		this.typePhone = typePhone;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
+	@Override
+	public String toString() {
+		return "Phone [id=" + id + ", ddd=" + ddd + ", number=" + number + ", typePhone=" + typePhone + "]";
 	}
 }
