@@ -12,7 +12,7 @@ public interface IUserService {
 
 	List<User> findAll();
 
-	void remove(Long id);
+	boolean remove(Long id);
 
 	User findByName(String name);
 

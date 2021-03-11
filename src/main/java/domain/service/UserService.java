@@ -40,7 +40,7 @@ public class UserService implements IUserService {
 	public List<User> findAll() {
 		List<User> users = this.userDao.findAll();
 
-		if (users.isEmpty()) {
+		if (!Objects.nonNull(users)) {
 			throw new FailLoadListException("usuários");
 		}
 
@@ -48,12 +48,14 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public void remove(Long id) {
+	public boolean remove(Long id) {
 		boolean isRemovedUser = this.userDao.deleteById(id);
 
 		if (!isRemovedUser) {
 			throw new EntityNotFoundException("id", id.toString());
 		}
+
+		return isRemovedUser;
 	}
 
 	@Override
