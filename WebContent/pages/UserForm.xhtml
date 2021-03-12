@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+     
+    <h:head>
+    	<title>SEFAZ - Cadastro de usuário</title>
+    </h:head>
+ 
+    <h:body>
+        <h1 id="label-user-form">Formulário de Usuário</h1>
+        <div class="form">
+            <h:form>
+                <div class="p-field p-grid p-d-block p-d-lg-inline">
+                    <label for="name" class="p-col-fixed">Nome</label>
+                    <div class="p-col">
+                        <p:inputText id="name" type="text" />
+                    </div>
+                </div>
+                <div class="p-field p-grid p-d-block p-d-lg-inline">
+                    <label for="email" class="p-col-fixed">Email</label>
+                    <div class="p-col">
+                        <p:inputText id="email" type="email" />
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="password" class="p-col-fixed">Senha</label>
+                    <div class="p-col">
+                        <p:inputText id="senha" type="password" />
+                    </div>
+                </div>
+				<div class="p-field p-grid p-d-block p-d-lg-inline">
+					<div class="ui-fluid p-formgrid p-grid">
+						<label for="ddd" class="p-col-fixed">DDD</label>
+						<div class="p-col">
+							<p:inputText id="ddd" type="text" />
+						</div>
+						<label for="number" class="p-col-fixed">Número</label>
+						<div class="p-col">
+							<p:inputText id="number" type="text" />
+						</div>
+						<div class="p-field p-col-12 p-md-4">
+							<p:outputLabel for="@next" value="Basic"/>
+							<p:selectOneMenu id="option" value="#{selectOneMenuView.selectedOption}">
+								<f:selectItem itemLabel="Select One" itemValue="" />
+								<f:selectItem itemLabel="Option1" itemValue="Option1"/>
+								<f:selectItem itemLabel="Option2" itemValue="Option2"/>
+								<f:selectItem itemLabel="Option3" itemValue="Option3"/>
+							</p:selectOneMenu>
+						</div>
+					</div>
+                </div>
+                <div class="btn-enter">
+                    <p:commandButton value="Cancelar" styleClass="ui-button-secondary"/>
+                    <p:commandButton value="Salvar" />
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+    <style>        
+        body {
+            background-color: #095A75; 
+        }
+        #label-user-form {
+            color:#ffffff;
+            font-size: 50px;
+            margin-left: 38%;
+            margin-right: 22%;
+            margin-top: 8%;
+        }
+        .form {
+            background-color:#EBF3EC;
+            text-align: center;
+            padding: 60px;
+            margin-top: 2%;
+            margin-left: 30%;
+            margin-right: 30%;
+            border-style: none;
+            border-radius: 2%;            
+        }
+    </style>
+</html>

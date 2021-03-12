@@ -1,0 +1,6 @@
+domain\dao\JpaUtilUnitTest.class
+domain\dao\UserDaoImplFlawsUnitTest.class
+domain\service\UserServiceFlawsUnitTest.class
+domain\service\UserServiceSuccessUnitTest.class
+main\SuiteTest.class
+domain\dao\UserDaoImplSuccessUnitTest.class

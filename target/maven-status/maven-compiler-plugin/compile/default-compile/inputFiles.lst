@@ -1,0 +1,14 @@
+C:\workspace\crud-user-sefaz\src\main\java\domain\dao\IUserDao.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\exceptions\ErrorToDeleteException.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\model\Phone.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\model\TypePhone.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\dao\UserDaoImpl.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\model\User.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\service\IUserService.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\dao\JpaUtil.java
+C:\workspace\crud-user-sefaz\src\main\java\web\controller\UserController.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\exceptions\EntityManagerFailException.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\exceptions\EntityNotFoundException.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\service\UserService.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\exceptions\ErrorToSaveEntityException.java
+C:\workspace\crud-user-sefaz\src\main\java\domain\exceptions\FailLoadListException.java

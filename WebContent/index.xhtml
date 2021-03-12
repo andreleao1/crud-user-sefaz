@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+     
+    <h:head>
+    	<title>SEFAZ - Cadastro de usuário</title>
+    </h:head>
+ 
+    <h:body>
+        <h1 id="label-sefaz">SEFAZ-PE</h1>
+        <div class="form">
+            <p id="welcome-text">Seja bem-vindo</p>
+            <h:form>
+                <div class="p-field p-grid p-d-block p-d-lg-inline">
+                    <label for="email" class="p-col-fixed">Email:</label>
+                    <div class="p-col">
+                        <p:inputText id="email" type="email"/>
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="password" class="p-col-fixed">Senha:</label>
+                    <div class="p-col">
+                        <p:inputText id="senha" type="password"/>
+                    </div>
+                </div>
+                <div class="btn-enter">
+                    <p:commandButton value="Entrar"/>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+    <style>        
+        body {
+            background-color: #095A75; 
+        }
+        #label-sefaz {
+            color:#ffffff;
+            font-size: 50px;
+            margin-left: 43%;
+            margin-top: 12%;
+        }
+        #welcome-text {
+            font-size: 20px;
+        }
+        .form {
+            background-color:#EBF3EC;
+            text-align: center;
+            padding: 60px;
+            margin-top: 2%;
+            margin-left: 30%;
+            margin-right: 30%;
+            border-style: none;
+            border-radius: 2%;            
+        }
+    </style>
+</html>
