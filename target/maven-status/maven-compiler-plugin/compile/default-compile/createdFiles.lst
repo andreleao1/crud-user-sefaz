@@ -1,6 +1,7 @@
 domain\dao\JpaUtil.class
 domain\model\User.class
 domain\exceptions\EntityManagerFailException.class
+web\controller\LoginController.class
 domain\dao\UserDaoImpl.class
 domain\model\TypePhone.class
 domain\exceptions\FailLoadListException.class

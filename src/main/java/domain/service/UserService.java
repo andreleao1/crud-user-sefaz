@@ -3,6 +3,8 @@ package domain.service;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.NoResultException;
+
 import domain.dao.IUserDao;
 import domain.dao.UserDaoImpl;
 import domain.exceptions.EntityNotFoundException;
@@ -81,7 +83,12 @@ public class UserService implements IUserService {
 
 	@Override
 	public boolean verifyEmailAndPassword(String email, String password) {
-		User user = this.userDao.findByEmailAndPassword(email, password);
+		User user = null;
+		try {
+			user = this.userDao.findByEmailAndPassword(email, password);
+		} catch (NoResultException e) {
+			System.out.println("Error! \nMenssagem: " + e.getMessage());
+		}
 
 		if (!Objects.nonNull(user)) {
 			return false;

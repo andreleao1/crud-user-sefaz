@@ -10,51 +10,53 @@
     </h:head>
  
     <h:body>
+    	<div class="btn-exit">
+       		<p:commandButton styleClass="ui-button-danger" value="Sair" action="#{userListController.exit}"/>
+        </div>
         <h1 id="label-user-form">Formulário de Usuário</h1>
         <div class="form">
             <h:form>
                 <div class="p-field p-grid p-d-block p-d-lg-inline">
                     <label for="name" class="p-col-fixed">Nome</label>
                     <div class="p-col">
-                        <p:inputText id="name" type="text" />
+                        <p:inputText id="name" type="text" value="#{userFormController.user.name}"/>
                     </div>
                 </div>
                 <div class="p-field p-grid p-d-block p-d-lg-inline">
                     <label for="email" class="p-col-fixed">Email</label>
                     <div class="p-col">
-                        <p:inputText id="email" type="email" />
+                        <p:inputText id="email" type="email" value="#{userFormController.user.email}"/>
                     </div>
                 </div>
                 <div class="p-field p-grid">
                     <label for="password" class="p-col-fixed">Senha</label>
                     <div class="p-col">
-                        <p:inputText id="senha" type="password" />
+                        <p:inputText id="senha" type="password" value="#{userFormController.user.password}"/>
                     </div>
                 </div>
 				<div class="p-field p-grid p-d-block p-d-lg-inline">
 					<div class="ui-fluid p-formgrid p-grid">
 						<label for="ddd" class="p-col-fixed">DDD</label>
 						<div class="p-col">
-							<p:inputText id="ddd" type="text" />
+							<p:inputText id="ddd" type="text" value="#{userFormController.phone.ddd}"/>
 						</div>
 						<label for="number" class="p-col-fixed">Número</label>
 						<div class="p-col">
-							<p:inputText id="number" type="text" />
+							<p:inputText id="number" type="text" value="#{userFormController.phone.number}"/>
 						</div>
 						<div class="p-field p-col-12 p-md-4">
 							<p:outputLabel for="@next" value="Basic"/>
-							<p:selectOneMenu id="option" value="#{selectOneMenuView.selectedOption}">
-								<f:selectItem itemLabel="Select One" itemValue="" />
-								<f:selectItem itemLabel="Option1" itemValue="Option1"/>
-								<f:selectItem itemLabel="Option2" itemValue="Option2"/>
-								<f:selectItem itemLabel="Option3" itemValue="Option3"/>
+							<p:selectOneMenu id="option" value="#{userFormController.typePhoneChosen}">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItem itemLabel="Celular" itemValue="CELULAR"/>
+								<f:selectItem itemLabel="Fixo" itemValue="FIXO"/>
 							</p:selectOneMenu>
 						</div>
 					</div>
                 </div>
                 <div class="btn-enter">
-                    <p:commandButton value="Cancelar" styleClass="ui-button-secondary"/>
-                    <p:commandButton value="Salvar" />
+                    <p:commandButton value="Cancelar" styleClass="ui-button-secondary" action="#{userFormController.loadPageUserList}"/>
+                    <p:commandButton id="btn-save" value="Salvar" action="#{userFormController.save}"/>
                 </div>
             </h:form>
         </div>
@@ -62,6 +64,11 @@
     <style>        
         body {
             background-color: #095A75; 
+        }
+        .btn-exit {
+        	margin-top: -10px;
+        	margin-bottom: 15px;
+        	margin-left: 95%;
         }
         #label-user-form {
             color:#ffffff;

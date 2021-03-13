@@ -17,17 +17,17 @@
                 <div class="p-field p-grid p-d-block p-d-lg-inline">
                     <label for="email" class="p-col-fixed">Email:</label>
                     <div class="p-col">
-                        <p:inputText id="email" type="email"/>
+                        <p:inputText id="email" type="email" value="#{loginController.email}"/>
                     </div>
                 </div>
                 <div class="p-field p-grid">
                     <label for="password" class="p-col-fixed">Senha:</label>
                     <div class="p-col">
-                        <p:inputText id="senha" type="password"/>
+                        <p:inputText id="senha" type="password" value="#{loginController.password}"/>
                     </div>
                 </div>
                 <div class="btn-enter">
-                    <p:commandButton value="Entrar"/>
+                    <p:commandButton value="Entrar" action="#{loginController.authenticate}"/>
                 </div>
             </h:form>
         </div>
