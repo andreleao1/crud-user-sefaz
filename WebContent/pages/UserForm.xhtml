@@ -11,52 +11,56 @@
  
     <h:body>
     	<div class="btn-exit">
-       		<p:commandButton styleClass="ui-button-danger" value="Sair" action="#{userListController.exit}"/>
+       		<p:commandButton styleClass="ui-button-danger" value="Sair" action="#{userFormController.exit}"/>
         </div>
         <h1 id="label-user-form">Formulário de Usuário</h1>
         <div class="form">
-            <h:form>
-                <div class="p-field p-grid p-d-block p-d-lg-inline">
-                    <label for="name" class="p-col-fixed">Nome</label>
+            <h:form id="userFormId">
+                <div class="p-field p-grid">
+                    <label for="name" class="label-input">Nome</label>
                     <div class="p-col">
-                        <p:inputText id="name" type="text" value="#{userFormController.user.name}"/>
-                    </div>
-                </div>
-                <div class="p-field p-grid p-d-block p-d-lg-inline">
-                    <label for="email" class="p-col-fixed">Email</label>
-                    <div class="p-col">
-                        <p:inputText id="email" type="email" value="#{userFormController.user.email}"/>
+                        <p:inputText id="name" class="input-form-lg" type="text" value="#{userFormController.user.name}"/>
                     </div>
                 </div>
                 <div class="p-field p-grid">
-                    <label for="password" class="p-col-fixed">Senha</label>
+                    <label for="email" class="label-input">Email</label>
                     <div class="p-col">
-                        <p:inputText id="senha" type="password" value="#{userFormController.user.password}"/>
+                        <p:inputText id="email" class="input-form-lg" type="email" value="#{userFormController.user.email}"/>
                     </div>
                 </div>
-				<div class="p-field p-grid p-d-block p-d-lg-inline">
-					<div class="ui-fluid p-formgrid p-grid">
-						<label for="ddd" class="p-col-fixed">DDD</label>
+                <div class="p-field p-grid">
+                    <label for="password" class="label-input">Senha</label>
+                    <div class="p-col">
+                        <p:inputText id="senha" class="input-form-md input-password" type="password" value="#{userFormController.user.password}"/>
+                    </div>
+                </div>
+				<div class="p-formgrid p-grid">
+					<div class="container-phone-ddd p-field p-col-12 p-md-4">
+						<label for="ddd" class="label-form">DDD</label>
 						<div class="p-col">
-							<p:inputText id="ddd" type="text" value="#{userFormController.phone.ddd}"/>
+							<p:inputText id="ddd" class="input-form-sm" type="text" value="#{userFormController.phone.ddd}"/>
 						</div>
+					</div>
+					<div class="container-phone-number">
 						<label for="number" class="p-col-fixed">Número</label>
 						<div class="p-col">
-							<p:inputText id="number" type="text" value="#{userFormController.phone.number}"/>
+							<p:inputText id="number" class="input-form-md" type="text" value="#{userFormController.phone.number}"/>
 						</div>
-						<div class="p-field p-col-12 p-md-4">
-							<p:outputLabel for="@next" value="Basic"/>
-							<p:selectOneMenu id="option" value="#{userFormController.typePhoneChosen}">
-								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+					</div>
+					<div class="container-phone-typePhone">
+						<label for="typePhoneOption" class="p-col-fixed">Tipo de telefone</label>
+						<div class="p-field p-col-12 p-md-4">							
+							<p:selectOneMenu id="typePhoneOption" class="input-form-md" value="#{userFormController.typePhoneChosen}">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" itemDisabled="true"/>
 								<f:selectItem itemLabel="Celular" itemValue="CELULAR"/>
 								<f:selectItem itemLabel="Fixo" itemValue="FIXO"/>
 							</p:selectOneMenu>
 						</div>
 					</div>
                 </div>
-                <div class="btn-enter">
+                <div class="btns-action">
                     <p:commandButton value="Cancelar" styleClass="ui-button-secondary" action="#{userFormController.loadPageUserList}"/>
-                    <p:commandButton id="btn-save" value="Salvar" action="#{userFormController.save}"/>
+                    <p:commandButton id="btn-save" value="Salvar" action="#{userFormController.save}" style="margin-left:3px;"/>
                 </div>
             </h:form>
         </div>
@@ -86,6 +90,31 @@
             margin-right: 30%;
             border-style: none;
             border-radius: 2%;            
+        }
+        .form-item {
+        	margin-top: 6px;
+        }
+        .input-form-lg {
+        	margin-top: 6px;
+        	width: 90%;
+        }
+        .input-form-md {
+        	margin-top: 6px;
+        	width: 45%;
+        }
+        .input-form-sm {
+        	margin-top: 6px;
+        	width: 10%;
+        }        
+        .input-password {
+        	margin-left:-45%;
+        }
+        .label-input {
+        	margin-left:-83%;
+        }
+        .btns-action {
+        	margin-top:20px;
+        	margin-left:72%;
         }
     </style>
 </html>

@@ -15,27 +15,29 @@
         </div>
         <h1 id="label-user-list">Lista de Usuários</h1>
         <div class="form">
-            <div class="btn-new-user">
-                <p:commandButton value="Novo" action="#{userListController.loadPageUserForm}"/>
+            <div>
+                <p:commandButton id="btn-new-user" value="Novo" action="#{userListController.loadPageUserForm}"/>
             </div>
             <h:form id="userListDT">
-                <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
-
                 <div class="card">
                     <p:dataTable var="user" value="#{userListController.listUsers}" scrollable="true" scrollHeight="250">
-                        <p:column headerText="Name">
+                        <p:column headerText="Nome" sortBy="#{user.name}" filterBy="#{user.name}">
                             <h:outputText value="#{user.name}"/>
                         </p:column>
-                        <p:column headerText="Email">
+                        <p:column headerText="Email" sortBy="#{user.email}" filterBy="#{user.email}">
                             <h:outputText value="#{user.email}"/>
                         </p:column>
                         <p:column headerText="Telefone">
-                        	 <h:outputText value="#{user.phones}"/>                         
+	                        <p:dataTable var="phone" value="#{user.phones}">
+		                        <p:column>
+		                        	 <h:outputText value="#{phone.number}"/>                         
+		                        </p:column>
+	                        </p:dataTable>
                         </p:column>
                         <p:column style="width:3rem;text-align: center">
-                            <p:commandButton  action="#{userListController.loadUser}" icon="pi pi-user-edit" title="Editar">
-                                <f:setPropertyActionListener value="#{user}" target="#{userListController.selectedUser}"/>
-                            </p:commandButton>                            
+                            <p:commandButton  action="#{userListController.atualizar(user)}" icon="pi pi-user-edit" title="Editar" immediate="true">
+                                <!-- <f:setPropertyActionListener value="#{user}" target="#{userListController.selectedUser}"/>  -->
+                            </p:commandButton>                      
                         </p:column>
                         <p:column style="width:3rem;text-align: center">
                             <p:commandButton styleClass="ui-button-danger" action="#{userListController.removeUser}" icon="pi pi-user-minus" title="Excluir">
@@ -68,10 +70,20 @@
             border-style: none;
             border-radius: 1%;            
         }
-        .btn-new-user, .btn-exit {
+        .btn-exit {
         	margin-top: -10px;
         	margin-bottom: 15px;
         	margin-left: 95%;
+        }
+        #btn-new-user {
+        	margin-top: -10px;
+        	margin-bottom: 15px;
+        	margin-left: 95%;
+        }
+        #input-name-email{
+        	width: 30%;
+        	margin-left:5%;
+        	margin-right: 3px;
         }
     </style>
 </html>

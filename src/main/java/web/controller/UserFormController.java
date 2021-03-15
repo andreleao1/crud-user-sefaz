@@ -14,6 +14,7 @@ import domain.model.TypePhone;
 import domain.model.User;
 import domain.service.IUserService;
 import domain.service.UserService;
+import jakarta.annotation.PostConstruct;
 
 @ManagedBean(name = "userFormController")
 @SessionScoped
@@ -27,14 +28,26 @@ public class UserFormController {
 	private IUserService userService;
 
 	public UserFormController() {
-		this.user = new User();
-		this.phone = new Phone();
-		this.phones = new HashSet<Phone>();
-		this.userService = new UserService();
+		if(this.user == null) {
+			this.user = new User();
+			this.phone = new Phone();
+			this.phones = new HashSet<Phone>();
+			this.userService = new UserService();
+			System.out.println("Chamou o construtor padrão.");
+			System.out.println(this.user.toString());
+		} else {
+
+			System.out.println("Pulou a verificação");
+			System.out.println(this.user.toString());
+		}
+		//System.out.println(this.user.toString());
+		
 	}
 
 	public UserFormController(User user) {
 		this.user = user;
+		System.out.println(this.user.toString());
+		System.out.println("Chamou o construtor com usuário");
 	}
 
 	public UserFormController(User user, Phone phone, String typePhoneChosen, Set<Phone> phones) {
@@ -42,6 +55,7 @@ public class UserFormController {
 		this.phone = phone;
 		this.phones = phones;
 		this.typePhoneChosen = typePhoneChosen;
+		System.out.println("Chamou o construtor com todos os atributos.");
 	}
 
 	public User getUser() {
@@ -80,7 +94,6 @@ public class UserFormController {
 		if (Objects.nonNull(this.phone)) {
 			assignPhoneToUser(this.phone);
 		}
-		System.out.println(this.user.toString());
 		this.userService.save(this.user);
 		clear();
 		loadPageUserList();
@@ -88,18 +101,19 @@ public class UserFormController {
 	
 	public void loadUserInForm(User user) {
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("UserForm.xhtml");			
+			FacesContext.getCurrentInstance().getExternalContext().redirect("UserForm.xhtml");
+			System.out.println("Vai chamar o construtor agora");
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace().toString());
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Erro ao carregar a página"));
-		}
-		this.user = user;
+		}		
 	}
 
 	public void loadPageUserList() {
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect("UserList.xhtml");
+			//clear();
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace().toString());
 			FacesContext.getCurrentInstance().addMessage(null,
