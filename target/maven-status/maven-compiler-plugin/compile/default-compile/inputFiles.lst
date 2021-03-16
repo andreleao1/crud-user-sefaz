@@ -6,9 +6,10 @@ C:\workspace\crud-user-sefaz\src\main\java\domain\dao\UserDaoImpl.java
 C:\workspace\crud-user-sefaz\src\main\java\domain\model\User.java
 C:\workspace\crud-user-sefaz\src\main\java\domain\service\IUserService.java
 C:\workspace\crud-user-sefaz\src\main\java\domain\dao\JpaUtil.java
-C:\workspace\crud-user-sefaz\src\main\java\web\controller\UserController.java
 C:\workspace\crud-user-sefaz\src\main\java\web\controller\LoginController.java
 C:\workspace\crud-user-sefaz\src\main\java\domain\exceptions\EntityManagerFailException.java
+C:\workspace\crud-user-sefaz\src\main\java\web\controller\UserFormController.java
+C:\workspace\crud-user-sefaz\src\main\java\web\controller\UserListController.java
 C:\workspace\crud-user-sefaz\src\main\java\domain\exceptions\EntityNotFoundException.java
 C:\workspace\crud-user-sefaz\src\main\java\domain\service\UserService.java
 C:\workspace\crud-user-sefaz\src\main\java\domain\exceptions\ErrorToSaveEntityException.java

@@ -5,11 +5,12 @@ web\controller\LoginController.class
 domain\dao\UserDaoImpl.class
 domain\model\TypePhone.class
 domain\exceptions\FailLoadListException.class
+web\controller\UserFormController.class
 domain\exceptions\EntityNotFoundException.class
+web\controller\UserListController.class
 domain\model\Phone.class
 domain\service\IUserService.class
 domain\service\UserService.class
 domain\dao\IUserDao.class
-web\controller\UserController.class
 domain\exceptions\ErrorToDeleteException.class
 domain\exceptions\ErrorToSaveEntityException.class
