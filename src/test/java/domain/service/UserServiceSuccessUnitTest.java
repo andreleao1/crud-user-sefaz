@@ -58,23 +58,7 @@ public class UserServiceSuccessUnitTest {
 	}
 	
 	@Test
-	public void d_must_return_a_user_when_find_user_by_name() {
-
-		User user = userService.findByName("João da Silva");
-
-		assertNotNull("Falha ao buscar usuário pelo nome.", user);
-	}
-	
-	@Test
-	public void e_must_return_a_user_when_find_user_by_email() {
-
-		User user = userService.findByEmail("joao.silva@gmail.com");
-
-		assertNotNull("Falha ao buscar usuário pelo email.", user);
-	}
-	
-	@Test
-	public void f_must_return_true_when_email_and_password_is_correct() {
+	public void d_must_return_true_when_email_and_password_is_correct() {
 		String email = "joao.silva@gmail.com";
 		String password = "123456";
 		
@@ -84,7 +68,7 @@ public class UserServiceSuccessUnitTest {
 	}
 	
 	@Test
-	public void g_must_return_true_when_delete_a_user() {
+	public void e_must_return_true_when_delete_a_user() {
 		List<User> users = userService.findAll();
 		boolean response = userService.remove(users.get(users.size()-1).getId());
 

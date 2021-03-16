@@ -14,10 +14,6 @@ public interface IUserService {
 
 	boolean remove(Long id);
 
-	User findByName(String name);
-
-	User findByEmail(String email);
-
 	boolean verifyEmailAndPassword(String email, String password);
 
 }

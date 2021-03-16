@@ -10,7 +10,7 @@ import domain.exceptions.ErrorToDeleteException;
 import domain.model.User;
 
 public class UserDaoImpl implements IUserDao {
-	
+
 	private EntityManager em;
 
 	@Override
@@ -18,11 +18,12 @@ public class UserDaoImpl implements IUserDao {
 		try {
 			EntityManager em = JpaUtil.getEntityManager();
 			em.getTransaction().begin();
-			em.persist(user);
+			this.internalSave(user, em);
 			em.getTransaction().commit();
 			em.close();
 			return user;
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			return null;
 		}
 	}
@@ -45,28 +46,6 @@ public class UserDaoImpl implements IUserDao {
 		em = JpaUtil.getEntityManager();
 		em.getTransaction().begin();
 		User user = em.find(User.class, id);
-		em.close();
-		return user;
-	}
-
-	@Override
-	public User findByName(String name) {
-		String jpql = "FROM User AS user WHERE user.name = :name";
-		em = JpaUtil.getEntityManager();
-		Query query = em.createQuery(jpql);
-		query.setParameter("name", name);
-		User user = (User) query.getSingleResult();
-		em.close();
-		return user;
-	}
-
-	@Override
-	public User findByEmail(String email) {
-		String jpql = "FROM User AS user WHERE user.email = :email";
-		em = JpaUtil.getEntityManager();
-		Query query = em.createQuery(jpql);
-		query.setParameter("email", email);
-		User user = (User) query.getSingleResult();
 		em.close();
 		return user;
 	}
@@ -100,5 +79,13 @@ public class UserDaoImpl implements IUserDao {
 			}
 		}
 		return false;
+	}
+
+	private void internalSave(User user, EntityManager em) {
+		if (user.getId() != null) {
+			em.merge(user);
+		} else {
+			em.persist(user);
+		}
 	}
 }

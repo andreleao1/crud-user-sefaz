@@ -14,10 +14,6 @@ public interface IUserDao {
 
 	boolean deleteById(Long id);
 
-	User findByName(String name);
-
-	User findByEmail(String email);
-
 	User findByEmailAndPassword(String email, String password);
 
 }

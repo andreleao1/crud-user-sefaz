@@ -35,9 +35,7 @@
 	                        </p:dataTable>
                         </p:column>
                         <p:column style="width:3rem;text-align: center">
-                            <p:commandButton  action="#{userListController.atualizar(user)}" icon="pi pi-user-edit" title="Editar" immediate="true">
-                                <!-- <f:setPropertyActionListener value="#{user}" target="#{userListController.selectedUser}"/>  -->
-                            </p:commandButton>                      
+                            <p:commandButton  action="#{userFormController.loadEditForm(user)}" icon="pi pi-user-edit" title="Editar" immediate="false" />                    
                         </p:column>
                         <p:column style="width:3rem;text-align: center">
                             <p:commandButton styleClass="ui-button-danger" action="#{userListController.removeUser}" icon="pi pi-user-minus" title="Excluir">

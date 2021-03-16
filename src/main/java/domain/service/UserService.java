@@ -61,27 +61,6 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public User findByName(String name) {
-		User user = this.userDao.findByName(name);
-
-		if (!Objects.nonNull(user)) {
-			throw new EntityNotFoundException("nome", name);
-		}
-
-		return user;
-	}
-
-	@Override
-	public User findByEmail(String email) {
-		User user = this.userDao.findByEmail(email);
-
-		if (!Objects.nonNull(user)) {
-			throw new EntityNotFoundException("email", email);
-		}
-		return user;
-	}
-
-	@Override
 	public boolean verifyEmailAndPassword(String email, String password) {
 		User user = null;
 		try {

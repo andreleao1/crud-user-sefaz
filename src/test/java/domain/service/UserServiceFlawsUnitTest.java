@@ -2,8 +2,6 @@ package domain.service;
 
 import static org.junit.Assert.assertFalse;
 
-import javax.persistence.NoResultException;
-
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -35,25 +33,14 @@ public class UserServiceFlawsUnitTest {
 	public void c_must_fail_when_find_a_user_noexistent() {
 		userService.find(999999L);
 	}
-
-	@Test(expected = NoResultException.class)
-	public void d_must_fail_when_find_a_user_with_name_nonexistent() {
-		userService.findByName("Teste de busca sem nome existente");
-	}
-
-	@Test(expected = NoResultException.class)
-	public void e_must_fail_when_find_a_user_with_email_nonexistent() {
-		userService.findByName("testedebuscasememailexistente@teste.com");
-	}
-
-	@Test(expected = NoResultException.class)
-	public void f_must_return_false_when_find_a_user_with_email_and_or_password_nonexistent() {
+	
+	public void d_must_return_false_when_find_a_user_with_email_and_or_password_nonexistent() {
 		assertFalse("Falha na verificação de email e senha.", userService
 				.verifyEmailAndPassword("testedebuscasememailexistente@teste.com", "testedebuscasememailexistente"));
 	}
 
 	@Test(expected = EntityNotFoundException.class)
-	public void g_must_fail_when_remove_a_user_with_id_nonexistent() {
+	public void e_must_fail_when_remove_a_user_with_id_nonexistent() {
 		userService.remove(999999L);
 	}
 }

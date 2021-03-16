@@ -58,23 +58,7 @@ public class UserDaoImplSuccessUnitTest {
 	}
 
 	@Test
-	public void d_must_pass_when_find_a_user_by_name() {
-		String name = "João da Silva";
-		User user = userDao.findByName(name);
-
-		assertNotNull("Falha ao buscar usuário pelo nome.", user);
-	}
-
-	@Test
-	public void e_must_pass_when_find_a_user_by_email() {
-		String email = "joao.silva@gmail.com";
-		User user = userDao.findByEmail(email);
-
-		assertNotNull("Falha ao buscar usuário pelo nome.", user);
-	}
-
-	@Test
-	public void f_must_pass_when_find_a_user_by_email_and_password() {
+	public void d_must_pass_when_find_a_user_by_email_and_password() {
 		String email = "joao.silva@gmail.com";
 		String password = "123456";
 		User user = userDao.findByEmailAndPassword(email, password);
@@ -83,7 +67,7 @@ public class UserDaoImplSuccessUnitTest {
 	}
 
 	@Test
-	public void g_must_return_true_when_remove_a_user() {
+	public void e_must_return_true_when_remove_a_user() {
 		List<User> users = userDao.findAll();
 		boolean response = userDao.deleteById(users.get(users.size()-1).getId());
 

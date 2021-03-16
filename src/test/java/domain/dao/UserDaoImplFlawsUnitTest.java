@@ -38,22 +38,12 @@ public class UserDaoImplFlawsUnitTest {
 	}
 
 	@Test(expected = Exception.class)
-	public void d_must_fail_when_find_a_user_with_name_nonexistent() {
-		userDao.findByName("Teste de busca sem nome existente");
-	}
-
-	@Test(expected = Exception.class)
-	public void e_must_fail_when_find_a_user_with_email_nonexistent() {
-		userDao.findByName("testedebuscasememailexistente@teste.com");
-	}
-
-	@Test(expected = Exception.class)
-	public void f_must_fail_when_find_a_user_with_email_and_or_password_nonexistent() {
+	public void d_must_fail_when_find_a_user_with_email_and_or_password_nonexistent() {
 		userDao.findByEmailAndPassword("testedebuscasememailexistente@teste.com", "testedebuscasememailexistente");
 	}
 
 	@Test
-	public void g_must_return_null_when_remove_a_user_with_id_nonexistent() {
+	public void e_must_return_null_when_remove_a_user_with_id_nonexistent() {
 		assertFalse(userDao.deleteById(999999L));
 	}
 }
